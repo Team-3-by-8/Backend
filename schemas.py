@@ -1,5 +1,5 @@
-import datetime
 from pydantic import BaseModel, EmailStr
+from datetime import datetime
 
 
 class Workout_history(BaseModel):
@@ -16,6 +16,7 @@ class UserCreate(BaseModel):
 class UserOut(BaseModel):
     id: int
     email: EmailStr
+    creation_date: datetime
 
     class Config:
         orm_mode = True
