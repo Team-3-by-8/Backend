@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 from .import models, schemas, utils
 from .schemas import Workout_history
 from .database import get_db, engine, SessionLocal
-from .routers import workouts, users
+from .routers import workouts, users, auth
 
 
 models.Base.metadata.create_all(bind=engine)
@@ -32,6 +32,7 @@ while True:
 
 app.include_router(users.router)
 app.include_router(workouts.router)
+app.include_router(auth.router)
 
 
 @ app.get('/')
