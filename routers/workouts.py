@@ -14,9 +14,9 @@ def test(db: Session = Depends(get_db), user_id: int = Depends(oauth.get_current
     return {"data": users}
 
 
-@router.get('/history', response_model=List[schemas.Workout_history])
+@router.get('/history', )
 def root(db: Session = Depends(get_db)):
-    data = db.query(models.Workout_history).all()
+    data = db.query(models.Streaks).all()
 
     return {"data": data}
 
