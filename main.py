@@ -1,15 +1,9 @@
-from http import HTTPStatus
-
-from fastapi import Body, Depends, FastAPI, HTTPException, Response, status
-from pydantic import BaseModel
+from fastapi import FastAPI
 import psycopg2
 from psycopg2.extras import RealDictCursor
 import time
-from sqlalchemy.orm import Session
-
-from .import models, schemas, utils
-from .schemas import Workout_history
-from .database import get_db, engine, SessionLocal
+from .import models
+from .database import engine
 from .routers import workouts, users, auth
 
 
