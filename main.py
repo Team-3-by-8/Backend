@@ -23,11 +23,11 @@ while True:
         conn = psycopg2.connect(host=ADDRESS, database=DATABASE_NAME,
                                 user=USER, password=PASSWORD, cursor_factory=RealDictCursor)
         cursor = conn.cursor()
-        print('Running workout history')
+        print('Running Workout Diary Database')
         break
     except Exception as error:
-        print('Error running workout history')
-        print('Error running workout history: ', error)
+        print('Error running Workout Diary Database')
+        print('Error running Workout Diary Database: ', error)
         time.sleep(3)
 
 app.include_router(users.router)
