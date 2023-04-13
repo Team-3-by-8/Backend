@@ -16,7 +16,6 @@ app = FastAPI()
 USER = os.getenv('USER')
 PASSWORD = os.getenv('PASSWORD')
 ADDRESS = os.getenv('ADDRESS')
-print(USER, PASSWORD, ADDRESS)
 DATABASE_NAME = os.getenv('DATABASE_NAME')
 
 while True:
@@ -38,5 +37,4 @@ app.include_router(auth.router)
 
 @ app.get('/')
 async def root():
-
-    return {"message": "hello worlddffdf"}
+    return {"message": "hello world"}

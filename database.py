@@ -10,7 +10,6 @@ load_dotenv()
 USER = os.getenv('USER')
 PASSWORD = os.getenv('PASSWORD')
 ADDRESS = os.getenv('ADDRESS')
-print(USER, PASSWORD, ADDRESS)
 DATABASE_NAME = os.getenv('DATABASE_NAME')
 
 SQLALCHEMY_DATABASE_URL = 'postgresql://' + \

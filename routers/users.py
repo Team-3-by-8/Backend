@@ -12,8 +12,6 @@ router = APIRouter(
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
     hashed_password = utils.hash(user.password)
-    # user.password = hashed_password
-    # new_user = models.Users(**user.dict())  # {'email' : 'JohnDoe', 'password' : 'aaaabbb'}
     new_user = models.Users(email=user.email, password=hashed_password)
     db.add(new_user)
     db.commit()
