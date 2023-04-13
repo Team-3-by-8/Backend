@@ -5,17 +5,24 @@ import time
 from .import models
 from .database import engine
 from .routers import workouts, users, auth
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
+USER = os.getenv('USER')
+PASSWORD = os.getenv('PASSWORD')
+ADDRESS = os.getenv('ADDRESS')
+print(USER, PASSWORD, ADDRESS)
+DATABASE_NAME = os.getenv('DATABASE_NAME')
 
 while True:
     try:
-        conn = psycopg2.connect(host='localhost', database='workoutdiary',
-                                user='postgres', password='postgres', cursor_factory=RealDictCursor)
+        conn = psycopg2.connect(host=ADDRESS, database=DATABASE_NAME,
+                                user=USER, password=PASSWORD, cursor_factory=RealDictCursor)
         cursor = conn.cursor()
         print('Running workout history')
         break

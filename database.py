@@ -1,9 +1,20 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
+# load_dotenv(os.path.dirname(__file__))
 
-SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:postgres@localhost/workoutdiary'
+USER = os.getenv('USER')
+PASSWORD = os.getenv('PASSWORD')
+ADDRESS = os.getenv('ADDRESS')
+print(USER, PASSWORD, ADDRESS)
+DATABASE_NAME = os.getenv('DATABASE_NAME')
+
+SQLALCHEMY_DATABASE_URL = 'postgresql://' + \
+    USER+':'+PASSWORD + '@'+ADDRESS+'/'+DATABASE_NAME
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
