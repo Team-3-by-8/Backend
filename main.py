@@ -13,7 +13,7 @@ load_dotenv()
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-USER = os.getenv('USER')
+USER = os.getenv('DBUSERNAME')
 PASSWORD = os.getenv('PASSWORD')
 ADDRESS = os.getenv('ADDRESS')
 DATABASE_NAME = os.getenv('DATABASE_NAME')
